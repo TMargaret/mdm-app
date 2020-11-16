@@ -1,0 +1,130 @@
+databaseChangeLog:
+  - changeSet:
+      id: mdm_001
+      author: Tryfou Margarita.
+      changes:
+        - createTable:
+            tableName: mdmcompany
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: pk_company_id
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: address
+                  type: varchar(150)
+        - createTable:
+            tableName: mdmemployee
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: pk_employee_id
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: email
+                  type: varchar(100)
+              - column:
+                  name: fk_company_id
+                  type: varchar(36)
+                  constraints:
+                    foreignKeyName: fk_company_id
+                    references: mdmcompany(id)
+        - createTable:
+            tableName: mdmdevice
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: serial_number
+                  type: varchar(80)
+              - column:
+                  name: type
+                  type: varchar(50)
+              - column:
+                  name: fk_company_id
+                  type: varchar(36)
+                  constraints:
+                    foreignKeyName: company_id
+                    references: mdmcompany(id)
+              - column:
+                  name: fk_employee_id
+                  type: varchar(36)
+                  constraints:
+                    foreignKeyName: employee_id
+                    references: mdmemployee(id)
+        - loadUpdateData:
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+              - column:
+                  name: name
+                  type: STRING
+              - column:
+                  name: address
+                  type: STRING
+            tableName: mdmcompany
+            encoding: UTF-8
+            file: db/companies.csv
+            separator: ;
+            primaryKey: id
+        - loadUpdateData:
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+              - column:
+                  name: name
+                  type: STRING
+              - column:
+                  name: email
+                  type: STRING
+            tableName: mdmemployee
+            encoding: UTF-8
+            file: db/employees.csv
+            separator: ;
+            primaryKey: id
+        - loadUpdateData:
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+              - column:
+                  name: name
+                  type: STRING
+              - column:
+                  name: serial_number
+                  type: STRING
+              - column:
+                  name: type
+                  type: STRING
+              - column:
+                  name: fk_company_id
+                  type: STRING
+              - column:
+                  name: fk_employee_id
+                  type: STRING
+            tableName: mdmdevice
+            encoding: UTF-8
+            file: db/devices.csv
+            separator: ;
+            primaryKey: id

@@ -1,0 +1,9 @@
+id;name;email;fk_company_id
+e0411a0e-71d9-41dc-a77d-fc345959aa14;Yiannis;yiannis@mail.com;1
+c79264ff-8ea3-4a21-a5d0-bc9de6e34b76;Ian;ian@mail.com;1
+f7c41be3-7510-430b-8ca9-a45897c1d598;John;john@mail.com;1
+3a6b6f37-013f-4d93-9343-36106d673929;Margie;margie@mail.com;2
+e0411a0e-71d9-41dc-a77d-fc345959aa11;Jenny;jenny@mail.com;2
+c79264ff-8ea3-4a21-a5d0-bc9de6e34b5y;Sophie;sophie@mail.com;2
+f7c41be3-7510-430b-8ca9-a45897c1d5ff;Bob;bob@mail.com;3
+3a6b6f37-013f-4d93-9343-36106d673998;Alice;alice@mail.com;3

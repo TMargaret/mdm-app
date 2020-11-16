@@ -1,0 +1,14 @@
+id;name;serial_number;type;fk_company_id;fk_employee_id
+e0411a0e-71d9-41dc-a77d-fc345959aa10;Samsung;HFjAuB5D;Mobile;1;e0411a0e-71d9-41dc-a77d-fc345959aa14
+e0411a0e-71d9-41dc-a77d-fc345959aaas;Samsung;HFjAuB5A;Mobile;2;3a6b6f37-013f-4d93-9343-36106d673929
+e0411a0e-71d9-41dc-a77d-fc345959aajj;Samsung;HFjAuB5j;Mobile;3;3a6b6f37-013f-4d93-9343-36106d673998
+c79264ff-8ea3-4a21-a5d0-bc9de6e34b7d;Xiaomi;3GZ6cCRr;Tablet;1;c79264ff-8ea3-4a21-a5d0-bc9de6e34b76
+c79264ff-8ea3-4a21-a5d0-bc9de6e34bs5;Xiaomi;3GZ6cCRm;Tablet;2;3a6b6f37-013f-4d93-9343-36106d673929
+c79264ff-8ea3-4a21-a5d0-bc9de6e34bss;Xiaomi;3GZ6cCRs;Tablet;3;3a6b6f37-013f-4d93-9343-36106d673998
+f7c41be3-7510-430b-8ca9-a45897c1d594;Dell;tBNpq2FW;Laptop;1;f7c41be3-7510-430b-8ca9-a45897c1d598
+f7c41be3-7510-430b-8ca9-a45897c1d5qw;Dell;tBNpq2Fe;Laptop;2;e0411a0e-71d9-41dc-a77d-fc345959aa11
+f7c41be3-7510-430b-8ca9-a45897c1d5qi;Dell;tBNpq2Fi;Laptop;3;f7c41be3-7510-430b-8ca9-a45897c1d5ff
+3a6b6f37-013f-4d93-9343-36106d673928;Asus;XnL7GZ89;Notebook;1;e0411a0e-71d9-41dc-a77d-fc345959aa14
+3a6b6f37-013f-4d93-9343-36106d673999;Asus;XnL7GZ99;Notebook;2;e0411a0e-71d9-41dc-a77d-fc345959aa11
+3a6b6f37-013f-4d93-9343-36106d673912;Asus;XnL7GZ82;Notebook;3;f7c41be3-7510-430b-8ca9-a45897c1d5ff
+

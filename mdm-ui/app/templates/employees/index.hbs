@@ -1,0 +1,36 @@
+<LinkTo @route="employees.add" class="btn btn-primary" role="button" aria-pressed="false">
+  Create employee
+</LinkTo>
+<div class="table table-hover">
+  <EmberTable as |t|>
+    <t.head
+            @columns={{columns}}
+            @sorts={{sorts}}
+            @onUpdateSorts={{action (mut sorts)}}
+            @widthConstraint='gte-container' as |h|>
+      <h.row as |r|>
+        <r.cell as |column|>
+          {{column.name}}
+        </r.cell>
+      </h.row>
+    </t.head>
+
+    <t.body @rows={{@model}} as |b|>
+      <b.row as |r|>
+        <r.cell as |cell column|>
+          {{cell}}
+          {{#if (eq column.valuePath 'edit')}}
+            <LinkTo @route="employees.edit" class="btn btn-primary" role="button" aria-pressed="false">
+                          Edit
+            </LinkTo>
+          {{/if}}
+          {{#if (eq column.valuePath 'delete')}}
+            <LinkTo @route="employees.delete" class="btn btn-danger" role="button" aria-pressed="false">
+              Delete
+            </LinkTo>
+          {{/if}}
+        </r.cell>
+      </b.row>
+    </t.body>
+  </EmberTable>
+</div>
