@@ -12,7 +12,7 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
-                    primaryKeyName: pk_company_id
+                    primaryKeyName: company_id
               - column:
                   name: name
                   type: varchar(50)
@@ -28,7 +28,7 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
-                    primaryKeyName: pk_employee_id
+                    primaryKeyName: employee_id
               - column:
                   name: name
                   type: varchar(50)
@@ -39,7 +39,7 @@ databaseChangeLog:
                   name: fk_company_id
                   type: varchar(36)
                   constraints:
-                    foreignKeyName: fk_company_id
+                    foreignKeyName: company_id
                     references: mdmcompany(id)
         - createTable:
             tableName: mdmdevice
@@ -60,13 +60,13 @@ databaseChangeLog:
                   name: type
                   type: varchar(50)
               - column:
-                  name: fk_company_id
+                  name: company_id
                   type: varchar(36)
                   constraints:
-                    foreignKeyName: company_id
+                    foreignKeyName: fk_company_id
                     references: mdmcompany(id)
               - column:
-                  name: fk_employee_id
+                  name: employee_id
                   type: varchar(36)
                   constraints:
                     foreignKeyName: employee_id
@@ -118,10 +118,10 @@ databaseChangeLog:
                   name: type
                   type: STRING
               - column:
-                  name: fk_company_id
+                  name: company_id
                   type: STRING
               - column:
-                  name: fk_employee_id
+                  name: employee_id
                   type: STRING
             tableName: mdmdevice
             encoding: UTF-8

@@ -31,4 +31,8 @@ public class EmployeeService {
         return ResponseEntity.ok(employeeDTOS);
     }
 
+    public ResponseEntity<EmployeeDTO> findEmployeeById(String id) {
+        return ResponseEntity.ok(mapper.mapToDTO(repository.fetchById(id)));
+    }
+
 }

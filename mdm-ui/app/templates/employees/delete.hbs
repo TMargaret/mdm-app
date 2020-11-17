@@ -1,1 +1,6 @@
-{{outlet}}
+<form {{action "accept" on='submit'}}>
+  {{!-- contextObject here is controller --}}
+  {{input value=contextObject.model.username}}
+  <button class="w-btn w-btn__default" type="submit">Send</button>
+  <button class="w-btn w-btn__danger" type="button" {{action "decline"}}>Cancel</button>
+</form>

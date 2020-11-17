@@ -1,11 +1,10 @@
 package com.assignment.mdm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "mdmdevice")
@@ -21,4 +20,9 @@ public class Device extends QBaseModel {
 
     @Column(name = "type", length = 50)
     private String type;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id")
+    @JsonIgnore
+    private Employee employee;
 }

@@ -1,4 +1,4 @@
-id;name;serial_number;type;fk_company_id;fk_employee_id
+id;name;serial_number;type;company_id;employee_id
 e0411a0e-71d9-41dc-a77d-fc345959aa10;Samsung;HFjAuB5D;Mobile;1;e0411a0e-71d9-41dc-a77d-fc345959aa14
 e0411a0e-71d9-41dc-a77d-fc345959aaas;Samsung;HFjAuB5A;Mobile;2;3a6b6f37-013f-4d93-9343-36106d673929
 e0411a0e-71d9-41dc-a77d-fc345959aajj;Samsung;HFjAuB5j;Mobile;3;3a6b6f37-013f-4d93-9343-36106d673998

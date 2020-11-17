@@ -17,17 +17,17 @@
 
     <t.body @rows={{@model}} as |b|>
       <b.row as |r|>
-        <r.cell as |cell column|>
+        <r.cell as |cell column row|>
           {{cell}}
           {{#if (eq column.valuePath 'edit')}}
-            <LinkTo @route="employees.edit" class="btn btn-primary" role="button" aria-pressed="false">
+            <LinkTo @route="employees.edit" @model={{row.id}} class="btn btn-primary" role="button" aria-pressed="false">
                           Edit
             </LinkTo>
           {{/if}}
           {{#if (eq column.valuePath 'delete')}}
-            <LinkTo @route="employees.delete" class="btn btn-danger" role="button" aria-pressed="false">
+            <button {{action 'openModal' 'delete'}} class="btn btn-danger" role="button" aria-pressed="false">
               Delete
-            </LinkTo>
+            </button>
           {{/if}}
         </r.cell>
       </b.row>

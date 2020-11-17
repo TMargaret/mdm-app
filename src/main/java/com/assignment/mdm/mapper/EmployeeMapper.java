@@ -8,6 +8,4 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface EmployeeMapper extends BaseMapper<Employee, EmployeeDTO> {
 
-    @Override
-    EmployeeDTO mapToDTO(Employee entity);
 }

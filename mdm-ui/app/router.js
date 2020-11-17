@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('employees', function() {
     this.route('add');
     this.route('index', {path:'/'})
-    this.route('edit');
+    this.route('edit', {path: '/:employeeId/edit'});
     this.route('delete');
   });
 });
