@@ -2,6 +2,7 @@ package com.assignment.mdm.service;
 
 import com.assignment.mdm.DTO.EmployeeDTO;
 import com.assignment.mdm.mapper.EmployeeMapper;
+import com.assignment.mdm.model.Employee;
 import com.assignment.mdm.repository.EmployeeRepository;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,4 +36,22 @@ public class EmployeeService {
         return ResponseEntity.ok(mapper.mapToDTO(repository.fetchById(id)));
     }
 
+    public ResponseEntity<String> saveEmployee(EmployeeDTO employeeDTO) {
+        Employee newEmployee;
+        if (employeeDTO.getId() != null) {
+            Employee employee = repository.fetchById(employeeDTO.getId());
+            mapper.mapToExistingEntity(employeeDTO, employee);
+            newEmployee = repository.save(employee);
+        } else {
+            newEmployee = repository.save(mapper.mapToEntity(employeeDTO));
+        }
+        return ResponseEntity.ok(newEmployee.getId());
+    }
+
+    public ResponseEntity<String> deleteEmployee(String id) {
+        Employee employee = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid employee Id:" + id));
+        repository.delete(employee);
+        return ResponseEntity.ok("Employee deleted");
+    }
 }

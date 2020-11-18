@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mdmdevice")
+@Table(name = "mdmcompany")
 @Getter
 @Setter
 public class Company extends QBaseModel {

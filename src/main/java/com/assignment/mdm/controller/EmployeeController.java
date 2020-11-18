@@ -6,17 +6,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.websocket.server.PathParam;
 
 @Log
 @RestController
 @RequestMapping("/employees")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class EmployeeController {
 
     @Autowired
@@ -27,15 +24,39 @@ public class EmployeeController {
      *
      * @return all employees.
      */
-    @CrossOrigin("http://localhost:4200/")
     @GetMapping(path = "")
-    public ResponseEntity<Page<EmployeeDTO>> getApplications() {
+    public ResponseEntity<Page<EmployeeDTO>> getEmployees() {
         return employeeService.findAllEmployees();
     }
 
-    @CrossOrigin("http://localhost:4200/")
+    /**
+     * Get employee by id.
+     * @param employeeId
+     * @return the employee that has been found.
+     */
     @GetMapping(path = "/{employeeId}")
     public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable("employeeId") String employeeId) {
         return employeeService.findEmployeeById(employeeId);
     }
+
+    /**
+     * Create or update an employee.
+     * @param employeeDTO
+     * @return the id of the created or updated employee.
+     */
+    @PostMapping(path = "/employee")
+    public ResponseEntity<String> saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.saveEmployee(employeeDTO);
+    }
+
+    /**
+     * Delete an employee.
+     * @param id
+     * @return a proper message.
+     */
+    @GetMapping("/delete/{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable("id") String id) {
+        return employeeService.deleteEmployee(id);
+    }
+
 }

@@ -25,7 +25,7 @@
             </LinkTo>
           {{/if}}
           {{#if (eq column.valuePath 'delete')}}
-            <button {{action 'openModal' 'delete'}} class="btn btn-danger" role="button" aria-pressed="false">
+            <button {{on "click" this.launchConfirmDialog}} class="btn btn-danger" role="button" aria-pressed="false">
               Delete
             </button>
           {{/if}}
@@ -34,3 +34,4 @@
     </t.body>
   </EmberTable>
 </div>
+

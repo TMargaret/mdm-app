@@ -41,11 +41,6 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
         </dependency>
@@ -104,7 +99,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>3.6.2</version>
                 <configuration>
                     <annotationProcessorPaths>
                         <annotationProcessorPath>
@@ -122,6 +117,11 @@
                             <artifactId>querydsl-jpa-codegen</artifactId>
                             <version>${querydsl.version}</version>
                         </annotationProcessorPath>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>0.1.0</version>
+                        </path>
                         <annotationProcessorPath>
                             <groupId>com.querydsl</groupId>
                             <artifactId>querydsl-apt</artifactId>

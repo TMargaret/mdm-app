@@ -3,9 +3,12 @@ package com.assignment.mdm.mapper;
 import com.assignment.mdm.DTO.EmployeeDTO;
 import com.assignment.mdm.model.Employee;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring")
 public interface EmployeeMapper extends BaseMapper<Employee, EmployeeDTO> {
+
+    void mapToExistingEntity(EmployeeDTO employeeDTO,
+                             @MappingTarget Employee employee);
 
 }
