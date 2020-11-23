@@ -11,6 +11,5 @@ Router.map(function() {
     this.route('add');
     this.route('index', {path:'/'})
     this.route('edit', {path: '/:employeeId/edit'});
-    this.route('delete');
   });
 });
