@@ -1,0 +1,8 @@
+<br/>
+<select class="form-control" onchange={{action this.selectCompany value="target.value"}}>
+  <option disabled selected value> -- select a company -- </option>
+  {{#each @model as |company|}}
+    <option value="{{company.name}}">{{company.name}}</option>
+  {{/each}}
+</select>
+<br/><br/>

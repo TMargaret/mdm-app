@@ -1,8 +1,13 @@
-import Controller from '@ember/controller';
+import Controller, { inject as controller} from '@ember/controller';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+import { alias } from '@ember/object/computed';
+import $ from "jquery";
 
 export default class EmployeesIndexController extends Controller {
+
+  @controller employees;
+  @alias('employees.company') company;
+  queryParams = ['company'];
 
   columns = [
     { name: 'Id', valuePath: 'id' },
@@ -28,7 +33,7 @@ export default class EmployeesIndexController extends Controller {
     $.ajax({
       url: '/employees/delete/' + employeeId,
       type: 'GET',
-      success: function(result) {
+      success: function() {
         window.location.reload();
       },
       error: function(response) {

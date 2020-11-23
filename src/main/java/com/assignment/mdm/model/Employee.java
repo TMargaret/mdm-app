@@ -1,5 +1,6 @@
 package com.assignment.mdm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,5 +23,10 @@ public class Employee extends QBaseModel {
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Device> devices;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_company_id")
+    @JsonIgnore
+    private Company company;
 
 }

@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.List;
+
 @Log
 @Service
 @Validated
@@ -36,7 +38,7 @@ public class EmployeeService {
         return ResponseEntity.ok(mapper.mapToDTO(repository.fetchById(id)));
     }
 
-    public ResponseEntity<String> saveEmployee(EmployeeDTO employeeDTO) {
+    public ResponseEntity<EmployeeDTO> saveEmployee(EmployeeDTO employeeDTO) {
         Employee newEmployee;
         if (employeeDTO.getId() != null) {
             Employee employee = repository.fetchById(employeeDTO.getId());
@@ -45,7 +47,7 @@ public class EmployeeService {
         } else {
             newEmployee = repository.save(mapper.mapToEntity(employeeDTO));
         }
-        return ResponseEntity.ok(newEmployee.getId());
+        return ResponseEntity.ok(mapper.mapToDTO(newEmployee));
     }
 
     public ResponseEntity<String> deleteEmployee(String id) {
@@ -53,5 +55,9 @@ public class EmployeeService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid employee Id:" + id));
         repository.delete(employee);
         return ResponseEntity.ok("Employee deleted");
+    }
+
+    public ResponseEntity<List<EmployeeDTO>> findEmployeesByCompanyName(String companyName) {
+        return ResponseEntity.ok(mapper.mapToDTO(repository.findByCompanyName(companyName)));
     }
 }

@@ -5,5 +5,6 @@ export default class EmployeeModel extends Model {
   @attr('string') id;
   @attr('string') name;
   @attr('email') email;
-  @hasMany('device') devices;
+  @attr('device') devices;
+  @attr('string') companyName;
 }

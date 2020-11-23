@@ -1,2 +1,13 @@
+<br/>
+{{#if this.activeRoute}}
+  {{this.getParam}}
+<select class="form-control" onchange={{action this.selectCompany}}>
+    <option disabled selected value> -- select a company -- </option>
+  {{#each @model as |companyChoice|}}
+    <option value="{{companyChoice.name}}" selected={{eq company companyChoice.name}}>{{companyChoice.name}}</option>
+  {{/each}}
+</select>
+<br/><br/>
+{{/if}}
 <h1>Employees</h1>
 {{outlet}}

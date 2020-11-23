@@ -93,3 +93,7 @@ body {
     width: 1170px;
   }
 }
+
+.ember-table {
+  overflow: hidden;
+}

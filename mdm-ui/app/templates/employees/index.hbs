@@ -1,37 +1,40 @@
-<LinkTo @route="employees.add" class="btn btn-primary" role="button" aria-pressed="false">
+{{#if company}}
+<LinkTo type="button" @route="employees.add" class="btn btn-primary mb-2" role="button" aria-pressed="false">
   Create employee
 </LinkTo>
-<div class="table table-hover">
-  <EmberTable as |t|>
-    <t.head
-            @columns={{columns}}
-            @sorts={{sorts}}
-            @onUpdateSorts={{action (mut sorts)}}
-            @widthConstraint='gte-container' as |h|>
-      <h.row as |r|>
-        <r.cell as |column|>
-          {{column.name}}
-        </r.cell>
-      </h.row>
-    </t.head>
+<div class="row">
+  <div class="table table-hover">
+    <EmberTable as |t|>
+      <t.head
+              @columns={{columns}}
+              @sorts={{sorts}}
+              @onUpdateSorts={{action (mut sorts)}}
+              @widthConstraint='gte-container' as |h|>
+        <h.row as |r|>
+          <r.cell as |column|>
+            {{column.name}}
+          </r.cell>
+        </h.row>
+      </t.head>
 
-    <t.body @rows={{@model}} as |b|>
-      <b.row as |r|>
-        <r.cell as |cell column row|>
-          {{cell}}
-          {{#if (eq column.valuePath 'edit')}}
-            <LinkTo @route="employees.edit" @model={{row.id}} class="btn btn-primary" role="button" aria-pressed="false">
-                          Edit
-            </LinkTo>
-          {{/if}}
-          {{#if (eq column.valuePath 'delete')}}
-            <button {{on "click" this.launchConfirmDialog}} class="btn btn-danger" role="button" aria-pressed="false">
-              Delete
-            </button>
-          {{/if}}
-        </r.cell>
-      </b.row>
-    </t.body>
-  </EmberTable>
+      <t.body @rows={{@model}} as |b|>
+        <b.row as |r|>
+          <r.cell as |cell column row|>
+            {{cell}}
+            {{#if (eq column.valuePath 'edit')}}
+              <LinkTo @route="employees.edit" @model={{row.id}} class="btn btn-primary" role="button" aria-pressed="false">
+                            Edit
+              </LinkTo>
+            {{/if}}
+            {{#if (eq column.valuePath 'delete')}}
+              <button {{on "click" this.deleteEmployee}} class="btn btn-danger" role="button" aria-pressed="false">
+                Delete
+              </button>
+            {{/if}}
+          </r.cell>
+        </b.row>
+      </t.body>
+    </EmberTable>
+  </div>
 </div>
-
+{{/if}}

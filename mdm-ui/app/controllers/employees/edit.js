@@ -1,8 +1,11 @@
 import Controller from '@ember/controller';
 import $ from "jquery";
 import { action } from '@ember/object';
+import {tracked} from "@glimmer/tracking";
 
 export default class EmployeesEditController extends Controller {
+
+  @tracked employee;
 
   columns = [
     { name: 'Id', valuePath: 'id' },
@@ -25,17 +28,14 @@ export default class EmployeesEditController extends Controller {
 
   @action
   saveEmployee(employee) {
-    console.log(this.get('name'))
-    $.ajax({
-      type: 'POST',
-      url: "/employees/employee",
-      data: JSON.stringify(employee),
-      contentType: "application/json",
-      dataType: "json",
-      success: function(resultData) { alert("Save Complete") },
-      error: function(response) {
-        console.log(response);
-      }
-    });
+    $.getJSON({
+          type: 'POST',
+          url: "/employees/employee",
+          data: JSON.stringify(employee),
+          contentType: "application/json",
+          dataType: "json",
+        }).then(() => {
+          this.transitionToRoute('employees')
+      })
   }
 }

@@ -7,8 +7,9 @@ import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Log
 @RestController
@@ -34,9 +35,19 @@ public class EmployeeController {
      * @param employeeId
      * @return the employee that has been found.
      */
-    @GetMapping(path = "/{employeeId}")
+    @GetMapping(path = "/employee/{employeeId}")
     public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable("employeeId") String employeeId) {
         return employeeService.findEmployeeById(employeeId);
+    }
+
+    /**
+     * Get all employees that belong to a company.
+     * @param companyName
+     * @return all employees that belong to a specific company.
+     */
+    @GetMapping(path = "/{companyName}")
+    public ResponseEntity<List<EmployeeDTO>> getEmployeesByCompanyName(@PathVariable("companyName") String companyName) {
+        return employeeService.findEmployeesByCompanyName(companyName);
     }
 
     /**
@@ -45,7 +56,7 @@ public class EmployeeController {
      * @return the id of the created or updated employee.
      */
     @PostMapping(path = "/employee")
-    public ResponseEntity<String> saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
+    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
         return employeeService.saveEmployee(employeeDTO);
     }
 

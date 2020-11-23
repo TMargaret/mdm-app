@@ -17,6 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
+        <org.projectlombok.version>1.18.12</org.projectlombok.version>
     </properties>
 
     <dependencies>
@@ -66,7 +67,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>${org.projectlombok.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -110,7 +112,7 @@
                         <annotationProcessorPath>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
+                            <version>${org.projectlombok.version}</version>
                         </annotationProcessorPath>
                         <annotationProcessorPath>
                             <groupId>com.querydsl</groupId>
