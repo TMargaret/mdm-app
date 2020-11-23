@@ -35,7 +35,7 @@ export default class EmployeesEditController extends Controller {
           contentType: "application/json",
           dataType: "json",
         }).then(() => {
-          this.transitionToRoute('employees')
+          this.transitionToRoute('employees', {queryParams: {company: employee.company.name}})
       })
   }
 }

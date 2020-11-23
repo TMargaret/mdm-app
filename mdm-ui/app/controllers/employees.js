@@ -12,7 +12,7 @@ export default class EmployeesController extends Controller {
     this.company = event.target.value;
   }
 
-  get activeRoute() {
+  get isEmployeeIndexRoute() {
     return this.get('router').get('currentRouteName') === "employees.index";
   }
 

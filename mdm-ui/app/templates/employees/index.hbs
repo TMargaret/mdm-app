@@ -1,5 +1,5 @@
 {{#if company}}
-<LinkTo type="button" @route="employees.add" class="btn btn-primary mb-2" role="button" aria-pressed="false">
+<LinkTo type="button" @route="employees.add" @query={{hash company=this.company}} class="btn btn-primary mb-2" role="button" aria-pressed="false">
   Create employee
 </LinkTo>
 <div class="row">
@@ -22,12 +22,12 @@
           <r.cell as |cell column row|>
             {{cell}}
             {{#if (eq column.valuePath 'edit')}}
-              <LinkTo @route="employees.edit" @model={{row.id}} class="btn btn-primary" role="button" aria-pressed="false">
+              <LinkTo @route="employees.edit" @model={{row.id}} @query={{hash company=this.company}} class="btn btn-primary" role="button" aria-pressed="false">
                             Edit
               </LinkTo>
             {{/if}}
             {{#if (eq column.valuePath 'delete')}}
-              <button {{on "click" this.deleteEmployee}} class="btn btn-danger" role="button" aria-pressed="false">
+              <button {{action this.deleteEmployee row.id}} class="btn btn-danger" role="button" aria-pressed="false">
                 Delete
               </button>
             {{/if}}

@@ -1,6 +1,5 @@
 <br/>
-{{#if this.activeRoute}}
-  {{this.getParam}}
+{{#if this.isEmployeeIndexRoute}}
 <select class="form-control" onchange={{action this.selectCompany}}>
     <option disabled selected value> -- select a company -- </option>
   {{#each @model as |companyChoice|}}

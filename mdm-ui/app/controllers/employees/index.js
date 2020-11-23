@@ -31,8 +31,8 @@ export default class EmployeesIndexController extends Controller {
   @action
   deleteEmployee(employeeId) {
     $.ajax({
-      url: '/employees/delete/' + employeeId,
-      type: 'GET',
+      url: '/employees/' + employeeId,
+      type: 'DELETE',
       success: function() {
         window.location.reload();
       },

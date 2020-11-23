@@ -1,8 +1,11 @@
 package com.assignment.mdm.service;
 
+import com.assignment.mdm.DTO.CompanyDTO;
 import com.assignment.mdm.DTO.EmployeeDTO;
 import com.assignment.mdm.mapper.EmployeeMapper;
+import com.assignment.mdm.model.Company;
 import com.assignment.mdm.model.Employee;
+import com.assignment.mdm.repository.CompanyRepository;
 import com.assignment.mdm.repository.EmployeeRepository;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +24,13 @@ public class EmployeeService {
 
     private final EmployeeMapper mapper;
     private final EmployeeRepository repository;
+    private final CompanyService companyService;
 
     @Autowired
-    public EmployeeService(EmployeeMapper mapper, EmployeeRepository repository) {
+    public EmployeeService(EmployeeMapper mapper, EmployeeRepository repository, CompanyService companyService) {
         this.mapper = mapper;
         this.repository = repository;
+        this.companyService = companyService;
     }
 
     public ResponseEntity<Page<EmployeeDTO>> findAllEmployees() {
@@ -45,6 +50,8 @@ public class EmployeeService {
             mapper.mapToExistingEntity(employeeDTO, employee);
             newEmployee = repository.save(employee);
         } else {
+            CompanyDTO companyDTO = companyService.findCompanyByName(employeeDTO.getCompanyName());
+            employeeDTO.setCompany(companyDTO);
             newEmployee = repository.save(mapper.mapToEntity(employeeDTO));
         }
         return ResponseEntity.ok(mapper.mapToDTO(newEmployee));

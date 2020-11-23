@@ -26,4 +26,9 @@ public class CompanyService {
         List<Company> companies = companyRepository.findAll();
         return companyMapper.mapToDTO(companies);
     }
+
+    public CompanyDTO findCompanyByName(String companyName) {
+        Company company = companyRepository.findByName(companyName);
+        return companyMapper.mapToDTO(company);
+    }
 }

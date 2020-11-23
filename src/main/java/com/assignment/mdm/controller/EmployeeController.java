@@ -65,7 +65,7 @@ public class EmployeeController {
      * @param id
      * @return a proper message.
      */
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") String id) {
         return employeeService.deleteEmployee(id);
     }
