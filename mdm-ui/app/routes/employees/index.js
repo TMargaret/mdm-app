@@ -1,10 +1,7 @@
 import Route from '@ember/routing/route';
 import $ from 'jquery';
-import { inject as service } from '@ember/service';
 
 export default class EmployeesIndexRoute extends Route {
-
-  @service store;
 
   queryParams = {
     company: {

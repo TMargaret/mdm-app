@@ -3,7 +3,7 @@
   Create employee
 </LinkTo>
 <div class="row">
-  <div class="table table-hover">
+  <div class="table table-hover" style="cursor: pointer;">
     <EmberTable as |t|>
       <t.head
               @columns={{columns}}
@@ -19,7 +19,7 @@
 
       <t.body @rows={{@model}} as |b|>
         <b.row as |r|>
-          <r.cell as |cell column row|>
+          <r.cell as |cell column row| {{on "click" (fn this.viewEmployee r.rowValue)}}>
             {{cell}}
             {{#if (eq column.valuePath 'edit')}}
               <LinkTo @route="employees.edit" @model={{row.id}} @query={{hash company=this.company}} class="btn btn-primary" role="button" aria-pressed="false">
@@ -27,7 +27,7 @@
               </LinkTo>
             {{/if}}
             {{#if (eq column.valuePath 'delete')}}
-              <button {{action this.deleteEmployee row.id}} class="btn btn-danger" role="button" aria-pressed="false">
+              <button {{on "click" (fn this.deleteEmployee row.id)}} class="btn btn-danger" role="button" aria-pressed="false">
                 Delete
               </button>
             {{/if}}

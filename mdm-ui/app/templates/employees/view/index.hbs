@@ -1,0 +1,45 @@
+<div class="col-md-12">
+  <div class="panel-body">
+    <h2>Devices</h2>
+    <div class="table table-hover">
+      <EmberTable as |t|>
+        <t.head
+                @columns={{columns}}
+                @sorts={{sorts}}
+                @onUpdateSorts={{action (mut sorts)}}
+                @widthConstraint='gte-container' as |h|>
+          <h.row as |r|>
+            <r.cell as |column|>
+              {{column.name}}
+            </r.cell>
+          </h.row>
+        </t.head>
+
+        <t.body @rows={{@model}} as |b|>
+          <b.row as |r|>
+            <r.cell as |cell column row|>
+              {{cell}}
+              {{#if (eq column.valuePath 'edit')}}
+                <LinkTo @route="employees.view.edit" @model={{row.id}} class="btn btn-primary" role="button" aria-pressed="false">
+                  Edit
+                </LinkTo>
+              {{/if}}
+              {{#if (eq column.valuePath 'delete')}}
+                <button {{action this.deleteDevice row.id}} class="btn btn-danger" role="button" aria-pressed="false">
+                  Remove
+                </button>
+              {{/if}}
+            </r.cell>
+          </b.row>
+        </t.body>
+      </EmberTable>
+    </div>
+
+    <LinkTo @route="employees" class="btn btn-light" role="button" aria-pressed="false">
+      Back
+    </LinkTo>
+    <button {{action "addNewDevice"}} class="btn btn-success" role="button" aria-pressed="false">
+      Add device
+    </button>
+  </div>
+</div>

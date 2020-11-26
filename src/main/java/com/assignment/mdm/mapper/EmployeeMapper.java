@@ -8,7 +8,4 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper extends BaseMapper<Employee, EmployeeDTO> {
 
-    void mapToExistingEntity(EmployeeDTO employeeDTO,
-                             @MappingTarget Employee employee);
-
 }

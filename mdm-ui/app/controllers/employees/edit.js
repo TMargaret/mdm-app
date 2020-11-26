@@ -7,25 +7,6 @@ export default class EmployeesEditController extends Controller {
 
   @tracked employee;
 
-  columns = [
-    { name: 'Id', valuePath: 'id' },
-    { name: 'Name', valuePath: 'name' },
-    { name: 'Serial Number', valuePath: 'serialNumber' },
-    { name: 'Type', valuePath: 'type'},
-    { name: '', valuePath: 'delete'},
-  ];
-
-  sorts = [
-    {
-      valuePath: 'name',
-      isAscending: false,
-    },
-    {
-      valuePath: 'price',
-      isAscending: true,
-    },
-  ]
-
   @action
   saveEmployee(employee) {
     $.getJSON({

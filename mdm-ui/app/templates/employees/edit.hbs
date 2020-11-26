@@ -1,41 +1,7 @@
 <form>
   <GenericForm @edit={{@model}}/>
-
-  <h2>Devices</h2>
-  <div class="table table-hover">
-    <EmberTable as |t|>
-      <t.head
-              @columns={{columns}}
-              @sorts={{sorts}}
-              @onUpdateSorts={{action (mut sorts)}}
-              @widthConstraint='gte-container' as |h|>
-        <h.row as |r|>
-          <r.cell as |column|>
-            {{column.name}}
-          </r.cell>
-        </h.row>
-      </t.head>
-
-      <t.body @rows={{@model.devices}} as |b|>
-        <b.row as |r|>
-          <r.cell as |cell column row|>
-            {{cell}}
-            {{#if (eq column.valuePath 'delete')}}
-              <button {{action 'openModal' 'delete'}} class="btn btn-danger" role="button" aria-pressed="false">
-                Remove
-              </button>
-            {{/if}}
-          </r.cell>
-        </b.row>
-      </t.body>
-    </EmberTable>
-  </div>
-
   <button type="button" {{on "click" (fn this.saveEmployee @model)}} class="btn btn-primary">Save</button>
   <LinkTo @route="employees" class="btn btn-light" role="button" aria-pressed="false">
     Cancel
-  </LinkTo>
-  <LinkTo @route="employees" class="btn btn-success" role="button" aria-pressed="false">
-    Add device
   </LinkTo>
 </form>

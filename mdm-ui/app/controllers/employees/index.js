@@ -23,13 +23,14 @@ export default class EmployeesIndexController extends Controller {
       isAscending: false,
     },
     {
-      valuePath: 'price',
+      valuePath: 'Email',
       isAscending: true,
     },
   ]
 
   @action
-  deleteEmployee(employeeId) {
+  deleteEmployee(employeeId, event) {
+    event.stopPropagation();
     $.ajax({
       url: '/employees/' + employeeId,
       type: 'DELETE',
@@ -40,6 +41,11 @@ export default class EmployeesIndexController extends Controller {
         console.log(response)
       }
     });
+  }
+
+  @action
+  viewEmployee(employee) {
+    this.transitionToRoute('/employees/' + employee.id + '/view');
   }
 
 }

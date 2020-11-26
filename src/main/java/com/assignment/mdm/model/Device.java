@@ -1,6 +1,7 @@
 package com.assignment.mdm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +23,13 @@ public class Device extends QBaseModel {
     private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
     @JsonIgnore
     private Employee employee;
+
+    @Column(name = "employee_id", insertable = false, updatable = false)
+    private String employeeId;
+
+    @Column(name = "company_id")
+    private String companyId;
 }

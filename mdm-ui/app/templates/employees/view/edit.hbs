@@ -1,0 +1,19 @@
+<h2>Edit device</h2>
+<form>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <Input @type="text" class="form-control" @id="name" @value={{@model.name}}/>
+  </div>
+  <div class="form-group">
+    <label for="serialNumber">Serial Number</label>
+    <Input @type="text" class="form-control" @id="serialNumber" @value={{@model.serialNumber}} />
+  </div>
+  <div class="form-group">
+    <label for="serialNumber">Type</label>
+    <Input @type="text" class="form-control" @id="type" @value={{@model.type}} />
+  </div>
+  <button {{action 'saveDevice' @model}} type="submit" class="btn btn-primary">Save</button>
+  <LinkTo @route="employees.view" class="btn btn-light" role="button" aria-pressed="false">
+    Cancel
+  </LinkTo>
+</form>

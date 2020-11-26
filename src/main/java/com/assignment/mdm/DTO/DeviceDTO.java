@@ -1,5 +1,6 @@
 package com.assignment.mdm.DTO;
 
+import com.assignment.mdm.model.Employee;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,4 +12,7 @@ public class DeviceDTO {
     private String name;
     private String serialNumber;
     private String type;
+    private String employeeId;
+    private String companyId;
+    private Employee employee;
 }
