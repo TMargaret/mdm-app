@@ -5,8 +5,6 @@ It is a small-scale web solution that handles a device inventory that a company 
 
 ## Programming languages used
 
-You will need the following things properly installed on your computer.
-
 * [Spring-boot]
 * [EmberJs]
 
@@ -24,7 +22,7 @@ At application.properties file please fill in the url and credentials:
 
 `spring.datasource.password=<password>`
 
-Liquibase is taking care of the schema and data.
+Liquibase will take care of the schema and data.
 
 ## Running / Development
 
