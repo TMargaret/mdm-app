@@ -12,7 +12,7 @@ export default class EmployeesViewEditController extends Controller {
       data: JSON.stringify(device),
       contentType: "application/json",
       dataType: "json",
-    }).then((data) => {
+    }).then(() => {
       this.transitionToRoute('employees.view')
     })
   }
