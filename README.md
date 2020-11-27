@@ -1,57 +1,26 @@
 # mdm-ui
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The MDM-application is developed for test purposes. 
+It is a small-scale web solution that handles a device inventory that a company may have for its employees.
 
-## Prerequisites
+## Programming languages used
 
 You will need the following things properly installed on your computer.
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+* [Spring-boot]
+* [EmberJs]
 
-## Installation
+## Resources
 
-* `git clone <repository-url>` this repository
-* `cd mdm-ui`
-* `npm install`
+* `git clone https://github.com/TMargaret/mdm-app.git`
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+* `mvn spring-boot:run`   under folder `\mdm`
+* `ember serve`           under folder `mdm\mdm-ui`
+* Visit your app at [http://localhost:8082](http://localhost:8082).
 
-### Code Generators
+### Credentials for login
 
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+* username: `admin`
+* password: `admin`

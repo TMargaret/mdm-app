@@ -21,7 +21,7 @@ public class Employee extends QBaseModel {
     @Column(name = "email", length = 100)
     private String email;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.NONE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Device> devices;
 
     @ManyToOne(fetch = FetchType.LAZY)
