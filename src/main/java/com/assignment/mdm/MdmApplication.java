@@ -19,7 +19,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
         "com.assignment.mdm.util",
         "com.assignment.mdm.controller",
         "com.assignment.mdm.service",
-        "com.assignment.mdm.configuration",
+        "com.assignment.mdm.security",
 })
 public class MdmApplication {
 

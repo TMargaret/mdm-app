@@ -14,6 +14,18 @@ You will need the following things properly installed on your computer.
 
 * `git clone https://github.com/TMargaret/mdm-app.git`
 
+## Set up database
+
+At application.properties file please fill in the url and credentials:
+
+`spring.datasource.url=jdbc:mysql://<URL>/<DATABASE_NAME>?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true`
+
+`spring.datasource.username=<username>`
+
+`spring.datasource.password=<password>`
+
+Liquibase is taking care of the schema and data.
+
 ## Running / Development
 
 * `mvn spring-boot:run`   under folder `\mdm`

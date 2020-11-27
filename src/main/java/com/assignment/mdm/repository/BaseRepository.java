@@ -20,12 +20,28 @@ import java.util.Optional;
 public interface BaseRepository<T extends QBaseModel, I extends Serializable>
         extends JpaRepository<T, I>, QuerydslPredicateExecutor<T> {
 
+    /**
+     * Generic function for fetching all records of type T.
+     * @param predicate
+     * @return a list of all records that have been found
+     */
     @NonNull
     List<T> findAll(@NonNull Predicate predicate);
 
+    /**
+     * Generic function for fetching all records of type T.
+     * @param predicate
+     * @param sort
+     * @return a list of all records that have been found
+     */
     @NonNull
     List<T> findAll(@NonNull Predicate predicate, @NonNull Sort sort);
 
+    /**
+     * Generic function for fetching by id
+     * @param id
+     * @return the responded object.
+     */
     default T fetchById(I id) {
         if (id == null) {
             throw new ValueIsRequiredException("Id is required to fetch an entity.");
