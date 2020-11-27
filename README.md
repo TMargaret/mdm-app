@@ -27,6 +27,7 @@ Liquibase will take care of the schema and data.
 ## Running / Development
 
 * `mvn spring-boot:run`   under folder `\mdm`
+* `npm install`           under folder `mdm\mdm-ui`
 * `ember serve`           under folder `mdm\mdm-ui`
 * Visit your app at [http://localhost:8082](http://localhost:8082).
 
